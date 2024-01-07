@@ -98,7 +98,7 @@ body {
 .taskList li{
     cursor: pointer;
     position: relative;
-    padding: 12px 8px 12px 40px;
+    padding: 12px 4px 12px 15px;
     list-style-type: none;
     background: #eee;
     font-size: 14px;
@@ -106,10 +106,10 @@ body {
     display: flex;
     position: relative;
     width: 270px;
-    height: 50px;
+    height: 60px;
     background-color: #FFFCFC;
     margin: 7px auto 7px;
-    border: 4px solid #BCBABA;
+    border: 4px solid #B4ADAD;
     border-radius: 12px;
     font-weight: 500;
     color: #140C42;
@@ -209,6 +209,29 @@ h3 {
 .editSubmitBtn {
   display: inline-block;
 }
+
+.editInput {
+  padding: 1rem;
+  border: 4px solid #B4ADAD ;
+  outline: 0;
+  border-radius: 15px;
+  width: 600px;
+  height: 80px;
+  margin: 4px;
+
+}.addEditBtn {
+  border: 4px solid #B4ADAD;
+  padding: 6px;
+  background-color: #0E39D3;
+  border-radius: 15px;
+  height: 40px;
+  color:white;
+  margin-top: 20px;
+}
+.addEditBtn:hover {
+  background-color: #6BD0FB;
+}
+
 
 @media only screen and (min-width: 600px) {
   body {

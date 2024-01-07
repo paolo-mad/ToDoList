@@ -60,14 +60,19 @@ document.addEventListener("DOMContentLoaded", () => {
     taskElement.addEventListener('click', function() {
       const currentText = taskElement.textContent;
       const editInput = document.createElement('input');
+      const addEditBtn = document.createElement('button');
+      addEditBtn.textContent = "add";
+      addEditBtn.className = "addEditBtn";
+      
       editInput.className = "editInput";
       editInput.value = currentText;
 
       taskElement.innerHTML = '';
       taskElement.appendChild(editInput);
+      taskElement.appendChild(addEditBtn);
       editInput.focus();
 
-      editInput.addEventListener('blur', function() {
+      addEditBtn.addEventListener('click', function() {
         const newText = editInput.value.trim();
         if (newText !== '') {
           taskElement.textContent = newText;
@@ -75,20 +80,31 @@ document.addEventListener("DOMContentLoaded", () => {
           if (index !== -1) {
             taskListSaved[index] = newText;
             saveTasksToLocalStorage();
+            createCloseButton(taskElement)
           }
         } else {
           taskElement.textContent = currentText;
-          alert('Task cannot be empty. Changes discarded.');
+          alert('Please edit.');
         }
       });
 
       editInput.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
-          editInput.blur();
+          const newText = editInput.value.trim();
+          if (newText !== '') {
+            taskElement.textContent = newText;
+            const index = taskListSaved.indexOf(taskText);
+            if (index !== -1) {
+              taskListSaved[index] = newText;
+              saveTasksToLocalStorage();
+               createCloseButton(taskElement)
+            }
+          } else {
+            taskElement.textContent = currentText;
+            alert('Please edit.');
+          }
         }
       });
     });
   }
 });
-
-

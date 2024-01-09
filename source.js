@@ -62,10 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function createEditFunctionality(taskElement) {
-    taskElement.addEventListener('click', function() {
+    taskElement.addEventListener('clik', function() {
       const currentText = taskElement.textContent;
       const editInput = document.createElement('input');
       const addEditBtn = document.createElement('button');
+      const editForm = document.createElement('div')
+      editForm.appendChild(editInput);
+      editForm.appendChild(addEditBtn);
+
+      editForm.className = "editForm"
       addEditBtn.innerHTML = "add";
       addEditBtn.className = "addEditBtn";
 
@@ -74,13 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
       
       editInput.className = "editInput";
       editInput.value = currentText;
-    
-
-
-
+  
       taskElement.innerHTML = '';
-      taskElement.appendChild(editInput);
-      taskElement.appendChild(addEditBtn);
+      taskElement.appendChild(editForm);
       editInput.focus()
 
 
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const newText = editInput.value.trim();
         if (newText !== '') {
           taskElement.textContent = newText;
-          const index = taskListSaved.indexOf(taskText);
+          const index = taskListSaved.indexOf(currentText);
           if (index !== -1) {
             taskListSaved[index] = newText;
             
@@ -101,10 +102,17 @@ document.addEventListener("DOMContentLoaded", () => {
           alert('Please edit.');
         }
         createCloseButton(taskElement)
-        createEditFunctionality(taskElement, newText); // Re-create edit functionality after saving
-        editInput.style.display = "none";
+        addEditBtn.classList.add("hide");
 
       });
+
+      // Add a "checked" symbol when clicking on a list item
+      const list = document.querySelector('.allTaskList');
+      list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'li') {
+          ev.target.classList.toggle('checked');
+        }
+      }, false);
       
   
       console.log("works")

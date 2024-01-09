@@ -155,6 +155,11 @@ ul li.checked::before {
   font-weight: 500;
 }
 
+.listItem::after {
+  color: #b51818;
+  text-decoration: line-through;
+}
+
 .listItem h4 {
   text-align: center;
   overflow: hidden;
@@ -233,6 +238,16 @@ h3 {
   left: 12px;
   outline: 4px solid #0e39d3;
   outline-offset: -1px;
+}
+.hide {
+  display: none;
+}
+
+.editForm {
+  background-color: red;
+  width: 300px;
+  height: 100px;
+  margin-left: -50px;
 }
 
 @media only screen and (min-width: 600px) {

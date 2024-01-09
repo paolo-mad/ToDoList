@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     createTaskElement(taskText);
   });
 
+  console.log(localStorage.getItem('tasks'))
+
   submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -24,29 +26,47 @@ document.addEventListener("DOMContentLoaded", () => {
       saveTasksToLocalStorage();
       inputField.value = '';
     } else {
-      alert('You forgot to enter a task.');
+      alert('Oops you forgot to enter a task.');
     }
   });
 
+
   function createTaskElement(taskText) {
     const newTask = document.createElement('li');
-    const checkBox = document.createElement("input");
-    newTask.className = "newTask" 
+    const checkBox = document.createElement('input');
+    const editTaskBtn = document.createElement('button');
+    editTaskBtn.className = "editTaskBtn";
+    editTaskBtn.innerText = "edit";
+    newTask.className = "newTask";
     checkBox.type = "checkbox";
-    checkBox.className = "checkBox"
+    checkBox.className = "checkBox";
     newTask.textContent = taskText;
+    newTask.appendChild(checkBox);
+    newTask.appendChild(editTaskBtn);
     taskItems.appendChild(newTask);
-    newTask.appendChild(checkBox)
-    createCloseButton(newTask);
-    createEditFunctionality(newTask, taskText);
+    deleteBtn(newTask);
+    editTask(newTask, taskText);
+    markDone(checkBox, newTask);
+    editTaskBtn.addEventListener('click', () => {
+      markDone(checkBox, newTask);
+    });
   }
-
-  function createCloseButton(taskElement) {
+  function markDone(checkBox, taskElement) {
+    checkBox.addEventListener('change', () => {
+      if (checkBox.checked) {
+        taskElement.classList.add("strike");
+      } else {
+        taskElement.classList.remove("strike");
+      }
+    });
+  }
+  
+  function deleteBtn(taskElement) {
     const span = document.createElement("span");
     const bin = document.createElement("img");
     bin.src = "img/trashcan.png";
     bin.className = "bin";
-    span.className = "close";
+    span.className = "deleteTask";
     span.appendChild(bin);
     taskElement.appendChild(span);
 
@@ -61,22 +81,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function createEditFunctionality(taskElement) {
-    taskElement.addEventListener('clik', function() {
-      const currentText = taskElement.textContent;
-      const editInput = document.createElement('input');
-      const addEditBtn = document.createElement('button');
-      const editForm = document.createElement('div')
+  
+
+  function editTask(taskElement, taskText) {
+    const currentText = taskText;
+    const editInput = document.createElement('input');
+    const addEditBtn = document.createElement('button');
+    const editForm = document.createElement('div')
+    const editTaskBtn = document.createElement('button');
+    editTaskBtn.className = "editTaskBtn";
+    editTaskBtn.innerText = "edit";
+    taskElement.appendChild(editTaskBtn); 
+    deleteBtn(taskElement);
+    addEditBtn.classList.add("hide");
+
+    editTaskBtn.addEventListener('click', function() {
       editForm.appendChild(editInput);
       editForm.appendChild(addEditBtn);
 
       editForm.className = "editForm"
       addEditBtn.innerHTML = "add";
       addEditBtn.className = "addEditBtn";
-
       editInput.style.display = "block";
-      
-      
       editInput.className = "editInput";
       editInput.value = currentText;
   
@@ -85,37 +111,29 @@ document.addEventListener("DOMContentLoaded", () => {
       editInput.focus()
 
 
-      addEditBtn.addEventListener('click', function() {
+     addEditBtn.addEventListener('click', function() {
         const newText = editInput.value.trim();
+
         if (newText !== '') {
           taskElement.textContent = newText;
           const index = taskListSaved.indexOf(currentText);
           if (index !== -1) {
-            taskListSaved[index] = newText;
             
-            saveTasksToLocalStorage();        
-
-
+            taskListSaved[index] = newText;          
+            saveTasksToLocalStorage();
+            createTaskElement(newText)
+            document.querySelector('li').remove()        
           }
         } else {
           taskElement.textContent = currentText;
           alert('Please edit.');
-        }
-        createCloseButton(taskElement)
-        addEditBtn.classList.add("hide");
-
+        }  
       });
-
-      // Add a "checked" symbol when clicking on a list item
-      const list = document.querySelector('.allTaskList');
-      list.addEventListener('click', function(ev) {
-        if (ev.target.tagName === 'li') {
-          ev.target.classList.toggle('checked');
-        }
-      }, false);
       
-  
-      console.log("works")
+      
     });
-  }
-});
+  
+      localStorage.clear();
+  };
+
+}); 

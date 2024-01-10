@@ -1,6 +1,7 @@
 # ToDoList
 
 # Listo an easy to use Todo List App. 
+(./img/images/ListoBG.png)
 
 This is a basic Todo list application built with [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) that allows users to manage their tasks effectively.
 
@@ -31,8 +32,9 @@ To use the application, simply open the `index.html` file in your web browser.
 
 ## Screenshots
 
-![Todo List App Screenshot](screenshot.png)
-*(Include screenshots of your app in action if available)*
+![Todo List App iPhone14](./img/images/iphone14.png/)
+[Todo List App desktop](./img/images/desktop.png)
+
 
 ## Contributing
 

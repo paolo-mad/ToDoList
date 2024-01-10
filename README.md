@@ -1,5 +1,5 @@
 # ToDoList
-<img src="./img/images/ListoBG.png/" alt="Todo List App Logo" width="200"/>
+<img src="./img/images/ListoBG.png/" alt="Todo List App Logo" width="150"/>
 
 # Listo an easy to use Todo List App. 
 

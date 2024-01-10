@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function deleteBtn(taskElement) {
     const span = document.createElement("span");
     const bin = document.createElement("img");
-    bin.src = "img/trashcan.png";
+    bin.src = "./img/icons/trashcan.png/";
     bin.className = "bin";
     span.className = "deleteTask";
     span.appendChild(bin);

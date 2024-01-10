@@ -61,7 +61,6 @@ body {
   width: 25%;
   text-align: center;
   font-size: 16px;
-  cursor: pointer;
   border-radius: 0 15px 15px 0px;
   border-width: 4px 4px 4px 0px;
   border-style: solid;
@@ -94,7 +93,6 @@ body {
 }
 
 .taskList li {
-  cursor: pointer;
   position: relative;
   padding: 15px 4px 12px 35px;
   list-style-type: none;
@@ -258,7 +256,8 @@ h3 {
   background-color: white;
   color: #140c42;
   padding: 2px;
-  border-radius: 5px;  
+  border-radius: 5px;
+  margin-right: 2px;  
 }
 .editTaskBtn:hover {
   background-color: #6bd0fb;
@@ -269,8 +268,12 @@ h3 {
   text-decoration:line-through;
   text-decoration-color:#0e39d3; 
   text-decoration-style:solid;
-  text-decoration-thickness: 3px;
- 
+  text-decoration-thickness: 3px; 
+}
+
+#labelCheckbox {
+  opacity: 0;
+  margin-left: -70px;
 }
 
 
@@ -374,11 +377,11 @@ h3 {
   }
   .editForm {
     width: 720px;
-    height: 64px;
+    height: 75px;
     margin-left: -50px;
     z-index: 10;
     display: flex;
-    margin-top: -22px;
+    margin-top: -35px;
     padding-top: 10px;
     padding-right: 4px;
     border-radius: 10px;
@@ -390,7 +393,7 @@ h3 {
     border-radius: 15px;
     width: 420px;
     height: 56px;
-    margin-top: -5px;
+    margin-top: -2px;
     font-size: 28px;
   }
   .addEditBtn {
@@ -402,6 +405,8 @@ h3 {
     color: white;
     font-size: 16px;
     text-align: center;
+    display: block;
+    padding-bottom: 5px;
   }
   .editTaskBtn {
     position: absolute;

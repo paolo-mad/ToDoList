@@ -34,6 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function createTaskElement(taskText) {
     const newTask = document.createElement('li');
     const checkBox = document.createElement('input');
+    checkBox.setAttribute('id','checkbox')
+    const labelCheckbox = document.createElement('label')
+    labelCheckbox.setAttribute('for','checkbox')
+    labelCheckbox.setAttribute('id', 'labelCheckbox')
+    labelCheckbox.textContent = "donedone";
     const editTaskBtn = document.createElement('button');
     editTaskBtn.className = "editTaskBtn";
     editTaskBtn.innerText = "edit";
@@ -42,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkBox.className = "checkBox";
     newTask.textContent = taskText;
     newTask.appendChild(checkBox);
+    newTask.appendChild(labelCheckbox)
     newTask.appendChild(editTaskBtn);
     taskItems.appendChild(newTask);
     deleteBtn(newTask);

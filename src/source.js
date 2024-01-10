@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function deleteBtn(taskElement) {
     const span = document.createElement("span");
     const bin = document.createElement("img");
-    bin.src = "./img/icons/trashcan.png/";
+    bin.src = "img/icons/trashcan.png";
     bin.className = "bin";
     span.className = "deleteTask";
     span.appendChild(bin);
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const index = taskListSaved.indexOf(taskText);
       if (index !== -1) {
         taskListSaved.splice(index, 1);
-        saveTasksToLocalStorage();
+        saveTasksToLocalStorage();clear
       }
     });
   }

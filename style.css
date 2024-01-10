@@ -62,7 +62,6 @@ body {
   text-align: center;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
   border-radius: 0 15px 15px 0px;
   border-width: 4px 4px 4px 0px;
   border-style: solid;
@@ -101,7 +100,7 @@ body {
   list-style-type: none;
   background: #eee;
   font-size: 14px;
-  transition: 0.2s;
+
   display: flex;
   position: relative;
   width: 270px;
@@ -197,7 +196,6 @@ h3 {
 
 .editTask input {
   border: none;
-  color: red;
   padding: 1rem;
   outline: 0;
 }
@@ -300,6 +298,7 @@ h3 {
     display: flex;
     margin-top: 45px;
     height: 70px;
+    margin-bottom: 40px;
   }
   .inputField {
     border-radius: 15px 0 0 15px;
@@ -317,8 +316,6 @@ h3 {
     width: 25%;
     text-align: center;
     font-size: 32px;
-    cursor: pointer;
-    transition: 0.3s;
     border-radius: 0 15px 15px 0px;
     border-width: 4px 4px 4px 0px;
   }
@@ -358,14 +355,13 @@ h3 {
     width: 550px;
     min-height: 55vh;
     background-color: #ffd8af;
-    border: 6px #b4adad solid;
+    border: 8px #b4adad solid;
     border-radius: 30px;
     padding-bottom: 100px;
   }
   .taskList li {
     padding: 15px 4px 12px 35px;
     font-size: 22px;
-    transition: 0.2s;
     width: 460px;
     height: 60px;
     background-color: #fffcfc;
@@ -378,8 +374,8 @@ h3 {
   }
   .editForm {
     width: 720px;
-    height: 68px;
-    margin-left: -30px;
+    height: 64px;
+    margin-left: -50px;
     z-index: 10;
     display: flex;
     margin-top: -22px;
@@ -392,20 +388,48 @@ h3 {
     border: 4px solid #b4adad;
     outline: 0;
     border-radius: 15px;
-    width: 440px;
-    height: 60px;
-    margin-top: 6px;
+    width: 420px;
+    height: 56px;
+    margin-top: -5px;
+    font-size: 28px;
   }
   .addEditBtn {
     border: 3px solid #b4adad;
-    padding: 6px;
     background-color: #0e39d3;
     border-radius: 15px;
-    height: 30px;
+    height: 40px;
+    width: 40px;
     color: white;
-    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
   }
-  
+  .editTaskBtn {
+    position: absolute;
+    top: 10px;
+    right: 45px;
+    outline: 4px solid #0e39d3;
+    outline-offset: -1px;
+    background-color: white;
+    color: #140c42;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 700;  
+  }
+  .bin {
+    width: 30px;
+  }
+  .checkBox {
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    outline: 5px solid #0e39d3;
+    outline-offset: -1px;
+  }
+  .strike {
+    text-decoration-thickness: 5px;
+   
+  }
   
   
 }

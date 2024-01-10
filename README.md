@@ -27,7 +27,7 @@ To use the application, simply open the `index.html` file in your web browser.
 
 ## Demo
 
-[View Demo](#) *(Replace with live demo link if available)*
+[View Demo]  https://paolo-mad.github.io/ToDoList/
 
 ## Screenshots
 

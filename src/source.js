@@ -79,8 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
     span.addEventListener('click', function() {
       taskElement.remove();
       const taskText = taskElement.textContent;
-      const index = taskListSaved.indexOf(taskText);
+      const index = taskListSaved.indexOf(taskText)
+      const taskDone = [];
       if (index !== -1) {
+        taskDone.push(taskListSaved.splice(index, 1))
         taskListSaved.splice(index, 1);
         saveTasksToLocalStorage();clear
       }
